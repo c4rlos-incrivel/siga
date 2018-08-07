@@ -1,7 +1,7 @@
 package com.incrivel.aspect;
 
 
-import org.jboss.logging.Logger;
+/*import org.jboss.logging.Logger;
 //import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -31,3 +31,4 @@ public class LoggerAspect {
 		logger.info(joinPoint.getTarget().getClass().getSimpleName()+" : "+joinPoint.getSignature().getName());
 	}
 }
+*/

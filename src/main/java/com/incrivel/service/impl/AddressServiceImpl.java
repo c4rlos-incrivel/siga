@@ -24,24 +24,24 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public List<Address> addressList() {
-		return addressRepository.findAll();
+		return addressRepository.findAll();  
 	}
 
 	@Override
 	public Address findById(Long id) {
 		return addressRepository.findById(id).orElse(null);
 	}
-
+	//por corrigir
 	@Override
 	public Address addAddress(Address address) {
-		address.setUser(userRepository.findById(address.getUserId()).orElse(null));
+		//address.setUser(userRepository.findOne(address.getUser().getId()));
 		return addressRepository.save(address);
 	}
 
 	@Override
 	public String deleteAddress(Long id) {
 		addressRepository.deleteById(id);
-		return "{'message':'Address Eliminado com sucesso'}";
+		return "Address Eliminado com sucesso.";
 	}
 	
 	

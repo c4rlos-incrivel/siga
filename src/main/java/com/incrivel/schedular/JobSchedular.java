@@ -1,4 +1,4 @@
-package com.incrivel.schedular;
+/*package com.incrivel.schedular;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,9 @@ public class JobSchedular {
 		this.addressService = addressService;
 	}
 
-	@Scheduled(cron = "*/5 * * * * *")
+*/
+/*
+@Scheduled(cron = "*5 * * * * *") 
 	public void scheduleUsingCron() {
 		logger.info(userService.userList());
 	}
@@ -40,4 +42,4 @@ public class JobSchedular {
 	public void scheduleUsingRate() {
 		logger.info(addressService.findById(1L));
 	}
-}
+}*/

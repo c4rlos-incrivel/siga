@@ -1,14 +1,21 @@
 package com.incrivel.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import javax.persistence.Table;
 
 @Entity
-public class Address extends AbstractPersistable <Long> {
-
+@Table(name="Address")
+public class Address {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	//private transient Long id;
 	private String city;
 	private String state;
 	private String country;
@@ -18,7 +25,13 @@ public class Address extends AbstractPersistable <Long> {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+		
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getCity() {
 		return city;
 	}

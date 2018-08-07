@@ -3,9 +3,12 @@ package com.incrivel.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.incrivel.model.Role;
 import com.incrivel.model.User;
+import com.incrivel.repository.RoleRepository;
 import com.incrivel.repository.UserRepository;
 import com.incrivel.service.UserService;
 
@@ -13,10 +16,12 @@ import com.incrivel.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
+	private RoleRepository roleRepository;
 	
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository) {
+	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
 		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
 	}
 
 
@@ -31,9 +36,11 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findById(id).orElse(null);//substituí o method findOne
 	}
 
-
+	//por corrigir
 	@Override
 	public User addUser(User user) {
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+		//user.setRole(roleRepository.findOne(user.getRole().getId()));
 		return userRepository.save(user);
 	}
 
@@ -41,7 +48,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String deleteUser(Long id) {
 		userRepository.deleteById(id);
-		return "{'message':'User deleted successfully.'}";
+		return "User deleted successfully.";
+	}
+
+
+	@Override
+	public List<Role> roleList() {
+		return roleRepository.findAll();
 	}
 	
 	
