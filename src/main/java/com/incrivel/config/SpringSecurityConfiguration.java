@@ -26,9 +26,11 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
+	//dar permissão à todos directorios que pretende que sejam lidos pelo springsecurity
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/user/login")
+		http.authorizeRequests().antMatchers("/webjars/**").permitAll()
+		.anyRequest().authenticated().and().formLogin().loginPage("/user/login")
 		.permitAll().and().logout().deleteCookies("remember-me").permitAll().and()
 		.rememberMe().tokenValiditySeconds(120);
 	}

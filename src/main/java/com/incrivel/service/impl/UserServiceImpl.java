@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User addUser(User user) {
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-		//user.setRole(roleRepository.findOne(user.getRole().getId()));
+		user.setRole(roleRepository.findById(user.getRole().getId()).orElse(null));
 		return userRepository.save(user);
 	}
 

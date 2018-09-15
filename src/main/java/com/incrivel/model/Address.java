@@ -9,12 +9,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Address")
+@Table(name="address")
 public class Address {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	//private transient Long id;
 	private String city;
 	private String state;
@@ -26,10 +26,10 @@ public class Address {
 	@JoinColumn(name = "user_id")
 	private User user;
 		
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getCity() {

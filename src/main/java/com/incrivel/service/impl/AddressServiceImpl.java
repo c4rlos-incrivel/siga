@@ -34,7 +34,7 @@ public class AddressServiceImpl implements AddressService {
 	//por corrigir
 	@Override
 	public Address addAddress(Address address) {
-		//address.setUser(userRepository.findOne(address.getUser().getId()));
+		address.setUser(userRepository.findById(address.getUser().getId()).orElse(null));
 		return addressRepository.save(address);
 	}
 

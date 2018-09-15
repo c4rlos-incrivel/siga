@@ -10,7 +10,7 @@
 <title>Address</title>
 </head>
 <body>
-	<form:form method="post" action="${path}/address/add" commandName="addressForm">
+	<form:form method="post" action="${path}/address/add" modelAttribute="addressForm">
 	<form:hidden path="id"/>
 		<p>Country : <form:input path="country" placeholder="Enter Country"/></p>
 		<p>State : <form:input path="state" placeholder="Enter State"/></p>

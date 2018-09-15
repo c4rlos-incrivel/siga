@@ -10,7 +10,7 @@
 <title>User</title>
 </head>
 <body>
-	<form:form method="post" action="${path}/user/add" commandName="userForm">
+	<form:form method="post" action="${path}/user/add" modelAttribute="userForm">
 		<form:hidden path="id"/>
 		<p>User Id : <form:input path="userId" placeholder="Enter User Id"/></p>
 		<p>User Name : <form:input path="userName" placeholder="Enter User Name"/></p>

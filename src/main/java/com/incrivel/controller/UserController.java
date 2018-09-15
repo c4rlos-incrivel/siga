@@ -1,7 +1,5 @@
 package com.incrivel.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.incrivel.model.User;
 import com.incrivel.service.UserService;
@@ -29,10 +26,10 @@ public class UserController {
 	@GetMapping("/login")
 	public String login(Model model, String error, String logout) {
 		if(error != null) {
-			model.addAttribute("error", "Your username and password is invalid.");
+			model.addAttribute("error", "Usuário e/ou senha são invalidos.");
 		}
 		if(logout != null) {
-			model.addAttribute("message", "You have been logged out successfully.");
+			model.addAttribute("message", "Terminou a sessão com sucesso.");
 		}
 		
 		return "login";
