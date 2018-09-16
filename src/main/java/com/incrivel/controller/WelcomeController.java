@@ -10,6 +10,6 @@ public class WelcomeController {
 	@RequestMapping("/")
 	public String welcome(Model model) {
 		model.addAttribute("message", "Welcome to Spring Boot !!!");
-		return "Welcome";
+		return "welcome";
 	}
 }

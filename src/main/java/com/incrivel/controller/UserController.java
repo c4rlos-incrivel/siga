@@ -66,7 +66,7 @@ public class UserController {
 		} else {
 			message = "updated";
 		}
-		model.addAttribute("message", userService.addUser(user).getUserName()+message+ " successfully");
+		model.addAttribute("message", userService.addUser(user).getUserName()+ message + " successfully");
 		return "message";
 	}
 	
